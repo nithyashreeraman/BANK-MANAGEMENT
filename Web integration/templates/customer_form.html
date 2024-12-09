@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Details</title>
+    <link rel="stylesheet" href="static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>{{ title }}</h1>
+
+        <!-- Form for existing or new customer -->
+        <form action="/customer" method="POST">
+            {% if title == "Existing Customer" %}
+                <label for="cssn">Customer SSN:</label>
+                <input type="text" name="cssn" id="cssn" required>
+                <button type="submit" name="action" value="view_balance">View Balance</button>
+            {% elif title == "New Customer" %}
+                <label for="cssn">Customer SSN:</label>
+                <input type="text" name="cssn" id="cssn" required>
+                <label for="cname">Customer Name:</label>
+                <input type="text" name="cname" id="cname" required>
+                <label for="city">City:</label>
+                <input type="text" name="city" id="city" required>
+                <button type="submit" name="action" value="add_customer">Add Joint Customer</button>
+            {% endif %}
+        </form>
+    </div>
+</body>
+</html>

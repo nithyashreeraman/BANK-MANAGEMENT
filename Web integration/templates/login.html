@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="static/style2.css">  <!-- Link to your existing CSS -->
+</head>
+<body>
+
+    <div class="container">
+        <h1>WELCOME TO BANK!</h1>
+
+        <form action="{{ url_for('login') }}" method="POST">
+            <!-- User Type Selection -->
+            <label for="user_type">Select User Type:</label>
+            <div class="radio-buttons">
+                <input type="radio" id="customer" name="user_type" value="customer" required>
+                <label for="customer">Customer</label>
+                <input type="radio" id="employee" name="user_type" value="employee" required>
+                <label for="employee">Employee</label>
+            </div>
+
+            <!-- Username Input -->
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
+
+            <!-- Password Input -->
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+
+            <!-- Submit Button -->
+            <button type="submit">Login</button>
+        </form>
+
+        <!-- Flash Messages -->
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <div class="message">
+                    <ul>
+                        {% for message in messages %}
+                            <li>{{ message }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            {% endif %}
+        {% endwith %}
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,105 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* .container {
+    max-width: 500px;
+    width: 100%;
+    padding: 30px;
+    background: rgba(255, 255, 255, 1); /* Solid white background */
+    /* border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1); /* Soft shadow for a modern effect */
+    /* transform: scale(1); /* Optional: adjust this for scaling effect */
+    /* transition: transform 0.3s ease; /* For smooth scaling on hover
+}  */
+
+h1, h2 {
+    color: #333;
+    text-align: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+label {
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+input, select, button {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+button {
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+    border: none;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+table th, table td {
+    padding: 12px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+table th {
+    background-color: #f0f0f0;
+    color: #333;
+}
+
+table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.message {
+    color: red;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.back-link {
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+    font-size: 16px;
+}
+
+.back-link a {
+    color: #007BFF;
+    text-decoration: none;
+}
+
+.back-link a:hover {
+    text-decoration: underline;
+}

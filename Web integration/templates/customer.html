@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 600px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px; /* Add spacing between elements */
+        }
+
+        label {
+            font-size: 16px;
+            color: #333;
+        }
+
+        select,
+        input[type="text"],
+        button {
+            width: 100%;
+            padding: 12px;
+            font-size: 16px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        button a {
+            text-decoration: none;
+            color: white;
+        }
+
+        .back-link {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .back-link a {
+            color: #007BFF;
+            text-decoration: none;
+        }
+
+        .back-link a:hover {
+            text-decoration: underline;
+        }
+
+        /* Initially hide extra fields */
+        .extra-fields {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Customer</h1>
+        <form method="POST">
+            <label for="action">Choose action:</label>
+            <select name="action" id="action">
+                <option value="view_balance">View Balance</option>
+                <option value="add_customer">Add Joint Customer</option>
+                <option value="view_loan_details">View Loan Details</option>
+                <option value="view_account_type">View Account Type</option>
+            </select>
+
+            <div>
+                <label for="cssn">Enter SSN:</label>
+                <input type="text" id="cssn" name="cssn" placeholder="Enter Social Security Number" required>
+            </div>
+
+            <div id="add_customer_fields" class="extra-fields">
+                <label for="cname">Enter Customer Name:</label>
+                <input type="text" id="cname" name="cname" placeholder="Enter Customer Name">
+                <label for="city">Enter Customer City:</label>
+                <input type="text" id="city" name="city" placeholder="Enter Customer City">
+            </div>
+
+            <button type="submit">Submit</button>
+        </form>
+
+        <div class="back-link">
+            <a href="/">Back to Home</a>
+        </div>
+    </div>
+
+    <script>
+        // Add event listener to toggle visibility of additional fields
+        document.getElementById('action').addEventListener('change', function () {
+            const action = this.value; // Get selected action
+            const additionalFields = document.getElementById('add_customer_fields');
+            
+            // Show or hide extra fields based on the selected value
+            if (action === 'add_customer') {
+                additionalFields.style.display = 'block';
+            } else {
+                additionalFields.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>

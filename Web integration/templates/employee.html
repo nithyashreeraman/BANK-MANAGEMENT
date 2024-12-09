@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Details</title>
+    <link rel="stylesheet" type="text/css" href="static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Search Employee Details</h1>
+
+        <!-- Employee Search Form -->
+        <form id="employee-form" action="/employee" method="post">
+            <label for="essn">Enter Employee SSN:</label>
+            <input type="text" id="essn" name="essn" placeholder="Enter Social Security Number" required>
+            <button type="submit">Search</button>
+        </form>
+
+        {% if message %}
+        <p class="message">{{ message }}</p>
+        {% endif %}
+
+        {% if employee %}
+        <!-- Hide the form once employee details are displayed -->
+        <script>
+            window.onload = function() {
+                document.getElementById('employee-form').style.display = 'none';
+            };
+        </script>
+
+        <!-- Display Employee Details -->
+        <h2>Employee Details</h2>
+        <table>
+            <tr>
+                <th>SSN</th>
+                <td>{{ employee[0] }}</td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td>{{ employee[1] }}</td>
+            </tr>
+            <tr>
+                <th>Phone</th>
+                <td>{{ employee[2] }}</td>
+            </tr>
+            <tr>
+                <th>Manager SSN</th>
+                <td>{{ employee[3] }}</td>
+            </tr>
+            <!-- <tr>
+                <th>Start Date</th>
+                <td>{{ employee[4] }}</td>
+            </tr> -->
+            <tr>
+                <th>Branch ID</th>
+                <td>{{ employee[4] }}</td>
+            </tr>
+        </table>
+
+        <!-- Display Dependents if Available -->
+        <h2>Dependents</h2>
+        {% if dependents %}
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Relationship</th>
+            </tr>
+            {% for dependent in dependents %}
+            <tr>
+                <td>{{ dependent[0] }}</td>
+                <td>{{ dependent[1] }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        {% else %}
+        <p>No dependents found for this employee.</p>
+        {% endif %}
+        {% endif %}
+
+        <div>
+            <button type="button"> <a href="/">Back to Home</a> </button>
+        </div>
+    </div>
+</body>
+</html>

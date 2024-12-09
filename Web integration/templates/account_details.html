@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account Details</title>
+    <link rel="stylesheet" href="static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Account Details for Customer SSN: {{ cssn }}</h1>
+        {% if accounts %}
+        <table>
+            <tr>
+                <th>Customer Name</th>
+                <th>Account Type</th>
+            </tr>
+            {% for account in accounts %}
+            <tr>
+                <td>{{ account[0] }}</td>
+                <td>{{ account[1] }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        {% else %}
+        <p>No accounts found for this customer.</p>
+        {% endif %}
+        <div class="back-link">
+            <a href="/customer">Back to Previous Page</a>
+        </div>
+    </div>
+</body>
+</html>
